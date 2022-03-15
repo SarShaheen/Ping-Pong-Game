@@ -260,11 +260,11 @@ function drawGame() {
   
   canvasContext.fillStyle = '#ADAEAE';
   canvasContext.font = "175px 'Oswald', sans-serif"; 
-  canvasContext.fillText(playerOneScore,canvas.width*.20,canvas.height/7 + 75);
+  canvasContext.fillText(playerOneScore,canvas.width*.22,canvas.height/7 + 75);
   
   canvasContext.fillStyle = '#ADAEAE';
   canvasContext.font = "175px 'Oswald', sans-serif";
-  canvasContext.fillText(playerTwoScore,canvas.width*.70,canvas.height/7 + 75);
+  canvasContext.fillText(playerTwoScore,canvas.width*.72,canvas.height/7 + 75);
   
   canvasContext.strokeStyle = '#4D5359';
   canvasContext.beginPath();
