@@ -25,7 +25,7 @@ let canvas = document.getElementById('gameCanvas'),
     restart = document.getElementById('restart'),
     again = document.getElementById('again'),
     gameMessage = document.getElementById('gameMessage'),
-    fps = 65,
+    fps = 70,
     gamePaused = false,
     gameInProgress = false,
     scoreToWin = 5,
@@ -86,7 +86,7 @@ function resetGame() {
 }
 
 /* Pause options */
-function togglePause() {
+function clickedPause() {
   if(gamePaused) {
     resumeGame();
   } else {
@@ -120,11 +120,11 @@ function resizeWindow() {
 }
 
 /* Keyboard functions */
-function keyDown(e) {
-  e.preventDefault();
-  switch(e.keyCode) {
+function keyDown(a) {
+  a.preventDefault();
+  switch(a.keyCode) {
     case 13:
-      if(gameInProgress) togglePause();
+      if(gameInProgress) clickedPause();
       break;
     case 38:
       if(!gamePaused) paddleOneDirection = 'up';
@@ -135,7 +135,7 @@ function keyDown(e) {
   }
 }
 
-function keyUp(e) {
+function keyUp(a) {
   paddleOneDirection = null;
 }
 
@@ -172,6 +172,7 @@ function gameFinished(playerWon) {
   gameOver.className = 'active'; 
 }
 
+/* Game function */
 function moveGame() {
   ballPositionX = ballPositionX + ballSpeedX;
   if(ballPositionX > canvas.width - paddleWidth*2 - ballSize/2) {
