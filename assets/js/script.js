@@ -31,3 +31,19 @@ let canvas = document.getElementById('gameCanvas'),
     scoreToWin = 5,
     difficultyLevel = 1,
     gameInterval = window.setInterval(function() {});
+
+/* Adds event listeners for when buttons are clicked or keys are pressed */
+window.addEventListener('resize', windowResize);
+startBtn.addEventListener('click', startGame);
+continueBtn.addEventListener('click', resumeGame);
+restartBtn.addEventListener('click', resetGame);
+againBtn.addEventListener('click', resetGame);
+document.addEventListener('keydown', keyDown);
+document.addEventListener('keyup', keyUp);
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+ballPositionY = canvas.height/2 - ballSize/2 
+paddleOne = canvas.height/2 - paddleHeight/2;
+paddleTwo = canvas.height/2 - paddleHeight/2;
+ballVelocityY = getRandomNumber(-5,5) * (.25 * difficultyLevel),
