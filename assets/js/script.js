@@ -254,3 +254,35 @@ function moveEverything() {
     paddleTwo += paddleTwoVelocity;    
   }
 }
+
+/* Sets game display in window */
+function drawEverything() {
+  
+  canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+  canvasContext.fillStyle = 'blue';
+  canvasContext.beginPath();
+  canvasContext.arc(ballPositionX, ballPositionY, ballSize/2, 0, Math.PI*2, true);
+  canvasContext.fill();
+  
+  canvasContext.fillStyle = '#323432';
+  canvasContext.fillRect(paddleWidth,paddleOne,paddleWidth,paddleHeight); 
+  
+  canvasContext.fillStyle = '#323432';
+  canvasContext.fillRect(canvas.width - paddleWidth - paddleWidth,paddleTwo,paddleWidth,paddleHeight);
+  
+  canvasContext.fillStyle = '#A1A5A1';
+  canvasContext.font = "200px 'Oswald', sans-serif";
+  canvasContext.textAlign = "center";
+  canvasContext.fillText(playerOneScore,canvas.width*.25,canvas.height/2 + 75);
+  
+  canvasContext.fillStyle = '#A1A5A1';
+  canvasContext.font = "200px 'Oswald', sans-serif";
+  canvasContext.textAlign = "center";
+  canvasContext.fillText(playerTwoScore,canvas.width*.75,canvas.height/2 + 75);
+  
+  canvasContext.strokeStyle = '#323432';
+  canvasContext.beginPath();
+  canvasContext.moveTo(canvas.width/2,0);
+  canvasContext.lineTo(canvas.width/2,canvas.height);
+  canvasContext.stroke();
+}
