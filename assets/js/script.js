@@ -47,3 +47,27 @@ ballPositionY = canvas.height/2 - ballSize/2
 paddleOne = canvas.height/2 - paddleHeight/2;
 paddleTwo = canvas.height/2 - paddleHeight/2;
 ballVelocityY = getRandomNumber(-5,5) * (.25 * difficultyLevel),
+
+/* Start Up page */
+startOption.className = 'active';
+pauseOption.className = '';
+gameplay.className = '';
+gameOverOption.className = '';
+
+window.onblur = function() {
+  if(gameInProgress) pauseGame();  
+}
+
+/* Begins running game code when start button is clicked */
+function startGame() {
+  gameInProgress = true;
+  gameplay.className = '';
+  startOption.className = '';
+  gameOverOption.className = '';
+  pauseOption.className = '';
+  gamePaused = false;
+  gameInterval = window.setInterval(function() {
+    moveEverything();
+    drawEverything();
+  }, 1000/fps);
+}
