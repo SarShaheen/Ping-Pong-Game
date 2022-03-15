@@ -21,3 +21,33 @@ body, html {
     align-items: center;
     justify-content: center;
   }
+
+  /* Start Up Menu*/
+  #start > div {
+    text-align: center;
+    position: fixed;
+    pointer-events: none;
+    transition: .5s;
+    transform: scale(.5);
+    opacity: 0;
+  }
+
+  #start div.active {
+    opacity: 1;
+    transform: scale(1.2);
+    pointer-events: auto;
+    z-index: 1;
+  }
+
+  /* Game Display*/
+  #start > #gameplay {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 0;
+  }
+
+  #start > div.active ~ #gameplay {
+    opacity: .75;
+    transform: scale(1);
+    filter: blur(8px);
+  }
