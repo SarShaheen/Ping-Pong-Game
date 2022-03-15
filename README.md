@@ -118,7 +118,7 @@ I used w3School & Google to help me understand some of the JavaScript code.
 
 ### Contents
 
-I used StackOverflow to help code the functionality of the game so it can run smoothly.
+I used StackOverflow to help code the functionality of the paddle controls so it can run smoothly.
 
 ### Media
 
