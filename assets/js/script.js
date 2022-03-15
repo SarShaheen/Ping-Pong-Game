@@ -230,3 +230,27 @@ function moveEverything() {
     }
     randomizeGame();
   }
+
+  /* Ball and paddle controls */
+  ballPositionY = ballPositionY + ballVelocityY; 
+  if(ballPositionY > canvas.height - ballSize/2) {
+    ballVelocityY = -ballVelocityY;
+    ballPositionY = canvas.height - ballSize/2;
+  } else if(ballPositionY < ballSize/2) {
+    ballVelocityY = -ballVelocityY;
+    ballPositionY = ballSize/2;
+  }
+  
+  if(paddleOneDirection === 'up' && paddleOne >= 0) {
+    paddleOne = paddleOne - paddleOneVelocity;
+  } else if(paddleOneDirection === 'down' && 
+            paddleOne < (canvas.height - paddleHeight) ) {
+    paddleOne += paddleOneVelocity; 
+  }
+  
+  if(ballPositionY < paddleTwo) {
+    paddleTwo -= paddleTwoVelocity;
+  } else if(ballPositionY > paddleTwo + paddleHeight) {
+    paddleTwo += paddleTwoVelocity;    
+  }
+}
