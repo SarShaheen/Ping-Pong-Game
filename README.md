@@ -1,6 +1,6 @@
 # Ping Pong
 
-Ping Pong is an interactive clone of the original arcade game that allows users to play against a computer and paddle a ball back and forth whilst a winner is determined by the score.
+Ping Pong is an interactive clone of the original arcade game that allows users to play against the computer and paddle a ball back and forth whilst a winner is determined by the score.
 
 Users will be able to play multiple rounds with increased difficulty until one of the players reaches 5 points, making them the winner. I have created it using a desktop first approach and it is targeted towards people who enjoy playing arcade games and are up for a challenge.
 
