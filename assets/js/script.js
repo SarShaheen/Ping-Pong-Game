@@ -71,3 +71,50 @@ function startGame() {
     drawEverything();
   }, 1000/fps);
 }
+
+/* Resets game display when reset button is clicked */
+function resetGame() {
+  playerOneScore = 0;
+  playerTwoScore = 0;
+  difficultyLevel = 1,
+  ballPositionX = canvas.width/2 - ballSize/2;
+  ballPositionY = canvas.height/2 - ballSize/2;
+  paddleOne = canvas.height/2 - paddleHeight/2;
+  paddleTwo = canvas.height/2 - paddleHeight/2;
+  ballVelocityY = getRandomNumber(-5,5) * (.25 * difficultyLevel),
+  startGame();
+}
+
+/* Pause options */
+function togglePause() {
+  if(gamePaused) {
+    resumeGame();
+  } else {
+    pauseGame();
+  }
+} 
+
+function pauseGame() {
+  if(!gamePaused) {
+    gamePaused = true;
+    gameplay.className = '';
+    pauseOption.className = 'active';
+    clearInterval(gameInterval);
+  }
+}
+
+function resumeGame() {
+  if(gamePaused) {
+    gamePaused = false;
+    gameplay.className = '';
+    pauseOption.className = ''; 
+    startGame();
+  }
+}
+
+function windowResize() {
+  resetBall();
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  drawEverything();
+}
