@@ -43,7 +43,7 @@ An option to pause the game is also available if needed by pressing the 'Enter' 
 
 - __Game Score__
 
-When the game is in progress, the JavaScript code will begin to move the Computers paddle along with the ball so that the user may try to score. It will determine the points in the scoreboard above depending on which side the ball has passed through on. The score is clearly displayed so that the user can continue to play with ease and have a clear understanding of who is in the lead. 
+When the game is in progress, the JavaScript code will begin to move the computers paddle along with the ball so that the user may try to score. It will determine the points in the scoreboard above depending on which side the ball has passed through on. The score is clearly displayed so that the user can continue to play with ease and have a clear understanding of who is in the lead. 
 
 ![Screenshot](assets/images/score.png)
 
@@ -65,11 +65,11 @@ I have made sure that the scoreboard shows the correct score once the game is in
 
 - See the scoreboard clearly: I can clearly see that the scoreboard is updated according to who is in the lead.
 
-- Control the paddle easily: I am able to move the paddle up and down with the arrow keys on my keyboard. This makes it easy to control the movement of where i want it to go.
+- Control the paddle easily: I am able to move the paddle up and down with the arrow keys on my keyboard. This makes it easy to control the movement of where i want the paddle to go.
 
 ### Bugs
 
-I came across a issue where i ended up losing half of the JavaScript code and upon re-writing it, i was having trouble getting the computers paddle to move with the ball position. After going over to StackOverflow, i realised my mistake in the code was that i needed to match the paddle with the height of ballpositionX and not ballpositionY. After correcting this, paddle two was functioning as it should.
+I came across a issue where i was having trouble getting the computers paddle to move with the ball position. After going over to StackOverflow, i realised my mistake in the code was that i needed to match the paddle with the height of ballpositionX and not ballpositionY. After correcting this, paddle two was functioning as it should.
 
 ### Validator Testing
 
@@ -119,3 +119,7 @@ I used w3School & Google to help me understand some of the JavaScript code.
 ### Contents
 
 I used StackOverflow to help code the functionality of the game so it can run smoothly.
+
+### Media
+
+The icons used for social media links were taken from Font Awesome.
