@@ -4,9 +4,9 @@ Ping Pong is an interactive clone of the original arcade game that allows users 
 
 Users will be able to play multiple rounds with increased difficulty until one of the players reaches 5 points, making them the winner. I have created it using a desktop first approach and it is targeted towards people who enjoy playing arcade games and are up for a challenge.
 
-Link to game - <a href="https://sarshaheen.github.io/Ping-Pong/" target="_blank" rel="noopener" aria-label="Visit Ping Pong game(Opens in a new tab)"> Click Here!</a>
+Link to game - <a href="https://sarshaheen.github.io/Ping-Pong-Game/" target="_blank" rel="noopener" aria-label="Visit Ping Pong game(Opens in a new tab)"> Click Here!</a>
 
-![Screenshot](mockup.png)
+![Screenshot](assets/images/mockup.png)
 
 ## User Stories
 
@@ -68,13 +68,13 @@ I came across a bug where paddle two was not moving according to the position of
 
 I can confirm no errors are returned after passing the offical W3C validator.
 
-![Screenshot](htmlvalidator.png)
+![Screenshot](assets/images/html-validator.png)
 
 - __CSS__
 
 I can confirm no errors are returned after passing the Jigsaw validator.
 
-![Screenshot](cssvalidator.png)
+![Screenshot](assets/images/css-validator.png)
 
 
 ### Unfixed Bugs
