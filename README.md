@@ -1,108 +1,112 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Ping Pong
 
-Welcome USER_NAME,
+Ping Pong is an interactive clone of the original arcade game that allows users to play against a computer and paddle a ball back and forth whilst a winner is determined by the score.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Users will be able to play multiple rounds with increased difficulty until one of the players reaches 5 points, making them the winner. I have created it using a desktop first approach and it is targeted towards people who enjoy playing arcade games and are up for a challenge.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+Link to game - <a href="https://sarshaheen.github.io/Ping-Pong/" target="_blank" rel="noopener" aria-label="Visit Ping Pong game(Opens in a new tab)"> Click Here!</a>
 
-## Gitpod Reminders
+![Screenshot](mockup.png)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## User Stories
 
-`python3 -m http.server`
+As a user, i want to be able to:
 
-A blue button should appear to click: _Make Public_,
+- Have clear instructions on how to play.
+- Play multiple rounds.
+- See the scoreboard.
+- Be able to move the paddle easily.
 
-Another blue button should appear to click: _Open Browser_.
+## Features
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+- __Header__
 
-A blue button should appear to click: _Make Public_,
+The Header appears at the center of the page, showing the game name (Ping Pong) in the center.
 
-Another blue button should appear to click: _Open Browser_.
+The simple colors and font used work well with the background and the it is easily readable for all users.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- __Start Up Page__
 
-To log into the Heroku toolbelt CLI:
+The start up page includes instructions on how to play and an option to start a new game. This is included as a interactive button so that the user can choose to start playing when they are ready.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+-__Pause Menu__
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+An option to pause the game is also available if needed by pressing the 'Enter' key. Again, the page features two interactive buttons to either continue playing or restart the game. This allows the user to keep track of their score without starting over if they take a break, or if a new tab is opened in the browser.
 
-------
+- __Game Score__
 
-## Release History
+When the game is in progress, the JavaScript code will begin to move the Computers paddle aswell as the ball so that the user may try to score. It will determine the points in the scoreboard behind, depending on which side the ball has passed through on. The score is clearly displayed so that the user can continue to play with ease and have a clear understanding of who is in the lead. 
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## Testing
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+I have tested this game in different browsers to ensure it works with Chrome,Safari etc...
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+I have ensured this project is responsive and functional by using devtools toolbar.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+I confirm that the text and design displayed throughout the game is visable to users. 
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+I have made sure that the scoreboard shows the correct score once the game is in progress.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### User Story Testing 
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+- Have clear instructions on how to play: Upon opening the game, i am presented with clear instructions to follow and a option to start the game.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+- Play multiple rounds: With each round i am able to continue playing as the difficulty is increased and the points are added up in the background on the scoreboard.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+- See the scoreboard: I can clearly see that the scoreboard is updated according to who is in the lead.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+- Be able to move the paddle easily: I am able to move the paddle up and down with the arrow keys on my keyboard. This makes it easy to control the movement of where i want it to go.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Bugs
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+I came across a bug where paddle two was not moving according to the position of the ball as i wanted it to. After going over to StackOverflow, i realised my mistake in the code was that i needed to match the paddle with the height of ballpositionX and not ballpositionY. After correcting this, paddle two was running fine.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### Validator Testing
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+- __HTML__
 
-------
+I can confirm no errors are returned after passing the offical W3C validator.
 
-## FAQ about the uptime script
+![Screenshot](htmlvalidator.png)
 
-**Why have you added this script?**
+- __CSS__
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+I can confirm no errors are returned after passing the Jigsaw validator.
 
-**How will this affect me?**
+![Screenshot](cssvalidator.png)
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+### Unfixed Bugs
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+No unfixed bugs.
 
-**So….?**
+## Version Control
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+### Git & Github
 
-**Can I opt out?**
+I used GitPod as a IDE and local repository & GitHub as a remote repository. The process was as follows:
+- I created a new repository on GitHub.
+- Then, i had opened that repository on GitPod and started coding.
+- In GitPod i had created the folders and pages.
+- I then started saving my work and pushing it to the GitHub repository to keep it safe.
+- The process for saving, commiting and pushing it to remote repository was to (done in terminal): 
+  - `git add . ` for adding work to git.
+  - `git commit -m "Commit message" ` to commit the work on the stage.
+  - `git push ` to push work up to GitHub.
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+## Deployment
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+This site has been deployed through GitHub pages. The steps to deploy were as follows:
 
-**Anything more?**
+- In the GitHub repository, navigate to the Settings tab.
+- From the source section drop-down menu, select the Main Branch.
+- Once the main branch has been selected, the page will provide a link to the deployed website to view.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+## Credits
 
----
+I used w3School & Google to help me understand some of the JavaScript code.
 
-Happy coding!
+### Contents
+
+I used StackOverflow to help code the functionality of the game so it can run smoothly.

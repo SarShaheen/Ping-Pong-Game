@@ -119,6 +119,13 @@ function resizeWindow() {
   drawGame();
 }
 
+function resetBall() {
+  ballSpeedX = -ballSpeedX;
+  ballSpeedY = getRandomNumber(-5,5) * (.25 * difficultyLevel);
+  ballPositionX = canvas.width/2;
+  ballPositionY = canvas.height/2;
+}
+
 /* Keyboard functions */
 function keyDown(a) {
   a.preventDefault();
@@ -139,13 +146,6 @@ function keyUp(a) {
   paddleOneDirection = null;
 }
 
-function resetBall() {
-  ballSpeedX = -ballSpeedX;
-  ballSpeedY = getRandomNumber(-5,5) * (.25 * difficultyLevel);
-  ballPositionX = canvas.width/2;
-  ballPositionY = canvas.height/2;
-}
-
 /* Calculates score */
 function getRandomNumber(min, max) {
   return Math.random() * (max - min) + min;
@@ -153,23 +153,6 @@ function getRandomNumber(min, max) {
 
 function randomizeGame() {
   paddleTwoSpeed = getRandomNumber(10,20) * (.25 * difficultyLevel);
-}
-
-/* Game over option */
-function gameFinished(playerWon) {
-  gameInProgress = false;
-  clearInterval(gameInterval);
-  gameMessage.textContent = '';
-  again.textContent = '';
-  if(playerWon) {
-    gameMessage.textContent = 'Yay, You won!';
-    again.textContent = 'Play again?';
-  } else {
-    gameMessage.textContent = 'Aww, you lost.';
-    again.textContent = 'Try again?';
-  }
-  game.className = '';
-  gameOver.className = 'active'; 
 }
 
 /* Game function */
@@ -231,6 +214,23 @@ function moveGame() {
     }
     randomizeGame();
   }
+
+  /* Game over option */
+function gameFinished(playerWon) {
+  gameInProgress = false;
+  clearInterval(gameInterval);
+  gameMessage.textContent = '';
+  again.textContent = '';
+  if(playerWon) {
+    gameMessage.textContent = 'Yay, You won!';
+    again.textContent = 'Play again?';
+  } else {
+    gameMessage.textContent = 'Aww, you lost.';
+    again.textContent = 'Try again?';
+  }
+  game.className = '';
+  gameOver.className = 'active'; 
+}
 
   /* Ball and paddle controls */
   ballPositionY = ballPositionY + ballSpeedY; 

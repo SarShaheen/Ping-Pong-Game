@@ -1,3 +1,4 @@
+/* Window display */
 body, html {
     height: 100%;
     width: 100%;
@@ -28,7 +29,7 @@ body, html {
 
   }
 
-  /* Start Up Menu*/
+  /* Start up menu*/
   #start > div {
     text-align: center;
     position: fixed;
@@ -45,7 +46,7 @@ body, html {
     z-index: 1;
   }
   
-  /* Game Display*/
+  /* Game display*/
   #start > #game {
     opacity: 1;
     transform: scale(1);
@@ -57,7 +58,7 @@ body, html {
     transform: scale(1);
     filter: blur(8px);
   }
-  /* Interactive Buttons*/
+  /* Interactive buttons*/
   button {
     background-color: #4D5359;
     font-family: 'Oswald', sans-serif;
