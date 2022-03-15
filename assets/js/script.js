@@ -19,7 +19,7 @@ let canvas = document.getElementById('gameCanvas'),
     startOption = document.getElementById('startOption'),
     pauseOption = document.getElementById('pauseOption'),
     gameOver = document.getElementById('gameOver'),
-    gamep = document.getElementById('game'),
+    game = document.getElementById('game'),
     begin = document.getElementById('begin'),
     continueBtn = document.getElementById('continueBtn'),
     restart = document.getElementById('restart'),
@@ -33,7 +33,7 @@ let canvas = document.getElementById('gameCanvas'),
     gameInterval = window.setInterval(function() {});
 
 /* Adds event listeners for when buttons are clicked or keys are pressed */
-window.addEventListener('resize', windowResize);
+window.addEventListener('resize', resizeWindow);
 begin.addEventListener('click', startGame);
 continueBtn.addEventListener('click', resumeGame);
 restart.addEventListener('click', resetGame);
@@ -67,8 +67,8 @@ function startGame() {
   pauseOption.className = '';
   gamePaused = false;
   gameInterval = window.setInterval(function() {
-    moveEverything();
-    drawEverything();
+    moveGame();
+    drawGame();
   }, 1000/fps);
 }
 
@@ -112,11 +112,11 @@ function resumeGame() {
   }
 }
 
-function windowResize() {
+function resizeWindow() {
   resetBall();
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  drawEverything();
+  drawGame();
 }
 
 /* Keyboard functions */
@@ -172,7 +172,7 @@ function gameFinished(playerWon) {
   gameOver.className = 'active'; 
 }
 
-function moveEverything() {
+function moveGame() {
   ballPositionX = ballPositionX + ballSpeedX;
   if(ballPositionX > canvas.width - paddleWidth*2 - ballSize/2) {
     if(ballPositionY >= paddleTwo && ballPositionY <= paddleTwo + paddleHeight && ballPositionX < canvas.width - paddleWidth) {
@@ -256,7 +256,7 @@ function moveEverything() {
 }
 
 /* Sets game display in window */
-function drawEverything() {
+function drawGame() {
   
   canvasContext.clearRect(0, 0, canvas.width, canvas.height);
   canvasContext.fillStyle = 'blue';
