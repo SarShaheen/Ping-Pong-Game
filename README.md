@@ -122,4 +122,4 @@ I used StackOverflow to help code the functionality of the paddle controls so it
 
 ### Media
 
-The icons used for social media links were taken from Font Awesome.
+The icon used for the game header was taken from Font Awesome.
