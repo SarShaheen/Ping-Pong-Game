@@ -84,7 +84,6 @@ function resetGame() {
   ballSpeedY = getRandomNumber(-5,5) * (.25 * difficultyLevel),
   startGame();
 }
-
 /* Pause options */
 function clickedPause() {
   if(gamePaused) {
@@ -161,20 +160,15 @@ function moveGame() {
   if(ballPositionX > canvas.width - paddleWidth*2 - ballSize/2) {
     if(ballPositionY >= paddleTwo && ballPositionY <= paddleTwo + paddleHeight && ballPositionX < canvas.width - paddleWidth) {
       ballSpeedX = -ballSpeedX;
-      if(ballPositionY >= paddleTwo && 
-         ballPositionY < paddleTwo + paddleHeight*.2) {
+      if(ballPositionY >= paddleTwo && ballPositionY < paddleTwo + paddleHeight*.2) {
         ballSpeedY = -15 * (.25 * difficultyLevel);
-      } else if(ballPositionY >= paddleTwo + paddleHeight*.2 && 
-                ballPositionY < paddleTwo + paddleHeight*.4) {
+      } else if(ballPositionY >= paddleTwo + paddleHeight*.2 && ballPositionY < paddleTwo + paddleHeight*.4) {
         ballSpeedY = -10 * (.25 * difficultyLevel);
-      } else if(ballPositionY >= paddleTwo + paddleHeight*.4 && 
-                ballPositionY < paddleTwo + paddleHeight*.6) {
+      } else if(ballPositionY >= paddleTwo + paddleHeight*.4 && ballPositionY < paddleTwo + paddleHeight*.6) {
         ballSpeedY = getRandomNumber(-5,5);;
-      } else if(ballPositionY >= paddleTwo + paddleHeight*.6 && 
-                ballPositionY < paddleTwoSpeed + paddleHeight*.8) {
+      } else if(ballPositionY >= paddleTwo + paddleHeight*.6 && ballPositionY < paddleTwoSpeed + paddleHeight*.8) {
         ballSpeedY = 10 * (.25 * difficultyLevel);
-      } else if(ballPositionY >= paddleTwo + paddleHeight*.8 && 
-                ballPositionY < paddleTwo + paddleHeight) {
+      } else if(ballPositionY >= paddleTwo + paddleHeight*.8 && ballPositionY < paddleTwo + paddleHeight) {
         ballSpeedY = 15 * (.25 * difficultyLevel);
       }
     /* Displays winner message */
@@ -186,24 +180,17 @@ function moveGame() {
     }
     randomizeGame();
   } else if(ballPositionX < paddleWidth*2 + ballSize/2) {
-    if(ballPositionY >= paddleOne && 
-       ballPositionY <= paddleOne + paddleHeight && 
-       ballPositionX > paddleWidth + ballSize/2) {
+    if(ballPositionY >= paddleOne && ballPositionY <= paddleOne + paddleHeight && ballPositionX > paddleWidth + ballSize/2) {
       ballSpeedX = -ballSpeedX;
-      if(ballPositionY >= paddleOne && 
-         ballPositionY < paddleOne + paddleHeight*.2) {
+      if(ballPositionY >= paddleOne && ballPositionY < paddleOne + paddleHeight*.2) {
         ballSpeedY = -20 * (.25 * difficultyLevel);
-      } else if(ballPositionY >= paddleOne + paddleHeight*.2 && 
-                ballPositionY < paddleOne + paddleHeight*.4) {
+      } else if(ballPositionY >= paddleOne + paddleHeight*.2 && ballPositionY < paddleOne + paddleHeight*.4) {
         ballSpeedY = -10 * (.25 * difficultyLevel);
-      } else if(ballPositionY >= paddleOne + paddleHeight*.4 && 
-                ballPositionY < paddleOneSpeed + paddleHeight*.6) {
+      } else if(ballPositionY >= paddleOne + paddleHeight*.4 && ballPositionY < paddleOneSpeed + paddleHeight*.6) {
         ballSpeedY = 0 * (.25 * difficultyLevel);
-      } else if(ballPositionY >= paddleOne  + paddleHeight*.6 && 
-                ballPositionY < paddleOne + paddleHeight*.8) {
+      } else if(ballPositionY >= paddleOne  + paddleHeight*.6 && ballPositionY < paddleOne + paddleHeight*.8) {
         ballSpeedY = 10 * (.25 * difficultyLevel);
-      } else if(ballPositionY >= paddleOne + paddleHeight*.8 && 
-                ballPositionY < paddleOne + paddleHeight) {
+      } else if(ballPositionY >= paddleOne + paddleHeight*.8 && ballPositionY < paddleOne + paddleHeight) {
         ballSpeedY = 20 * (.25 * difficultyLevel);
       }
     /* Displays lose message */
