@@ -29,7 +29,7 @@ body, html {
 
   }
 
-  /* Start up menu*/
+  /* Zoom in and out animation */
   #start > div {
     text-align: center;
     position: fixed;
@@ -46,7 +46,7 @@ body, html {
     z-index: 1;
   }
   
-  /* Game display*/
+  /* Display */
   #start > #game {
     opacity: 1;
     transform: scale(1);
@@ -58,7 +58,7 @@ body, html {
     transform: scale(1);
     filter: blur(8px);
   }
-  /* Interactive buttons*/
+  /* Interactive buttons */
   button {
     background-color: #4D5359;
     font-family: 'Oswald', sans-serif;
