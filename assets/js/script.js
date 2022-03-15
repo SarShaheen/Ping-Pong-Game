@@ -272,14 +272,12 @@ function drawGame() {
   canvasContext.fillRect(canvas.width - paddleWidth - paddleWidth,paddleTwo,paddleWidth,paddleHeight);
   
   canvasContext.fillStyle = '#ADAEAE';
-  canvasContext.font = "200px 'Oswald', sans-serif";
-  canvasContext.textAlign = "center";
-  canvasContext.fillText(playerOneScore,canvas.width*.25,canvas.height/2 + 75);
+  canvasContext.font = "175px 'Oswald', sans-serif"; 
+  canvasContext.fillText(playerOneScore,canvas.width*.20,canvas.height/7 + 75);
   
   canvasContext.fillStyle = '#ADAEAE';
-  canvasContext.font = "200px 'Oswald', sans-serif";
-  canvasContext.textAlign = "center";
-  canvasContext.fillText(playerTwoScore,canvas.width*.75,canvas.height/2 + 75);
+  canvasContext.font = "175px 'Oswald', sans-serif";
+  canvasContext.fillText(playerTwoScore,canvas.width*.70,canvas.height/7 + 75);
   
   canvasContext.strokeStyle = '#4D5359';
   canvasContext.beginPath();
