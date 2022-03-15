@@ -118,3 +118,30 @@ function windowResize() {
   canvas.height = window.innerHeight;
   drawEverything();
 }
+
+/* Keyboard functions */
+function keyDown(e) {
+  e.preventDefault();
+  switch(e.keyCode) {
+    case 13:
+      if(gameInProgress) togglePause();
+      break;
+    case 38:
+      if(!gamePaused) paddleOneDirection = 'up';
+      break;
+    case 40:
+      if(!gamePaused) paddleOneDirection = 'down';
+      break;
+  }
+}
+
+function keyUp(e) {
+  paddleOneDirection = null;
+}
+
+function resetBall() {
+  ballVelocityX = -ballVelocityX;
+  ballVelocityY = getRandomNumber(-5,5) * (.25 * difficultyLevel);
+  ballPositionX = canvas.width/2;
+  ballPositionY = canvas.height/2;
+}
