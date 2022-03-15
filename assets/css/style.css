@@ -5,6 +5,7 @@ body, html {
     font-family: 'Oswald', sans-serif;
     margin: 0;
   }
+
   /* Header */
   h1 {
     color: #323432;
@@ -20,6 +21,7 @@ body, html {
     display: flex;
     align-items: center;
     justify-content: center;
+
   }
 
   /* Start Up Menu*/
@@ -31,23 +33,44 @@ body, html {
     transform: scale(.5);
     opacity: 0;
   }
-
+  
   #start div.active {
     opacity: 1;
     transform: scale(1.2);
     pointer-events: auto;
     z-index: 1;
   }
-
+  
   /* Game Display*/
   #start > #gameplay {
     opacity: 1;
     transform: scale(1);
     z-index: 0;
   }
-
+  
   #start > div.active ~ #gameplay {
     opacity: .75;
     transform: scale(1);
     filter: blur(8px);
+  }
+  /* Interactive Buttons*/
+  button {
+    background-color: #505350;
+    font-family: 'Oswald', sans-serif;
+    color: #F5F5F5;
+    border: 0;
+    border-radius: 150px;
+    padding: 12px 22px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 16px;
+    min-width: 150px;
+    opacity: .75;
+    transition: .25s;
+    cursor: pointer;
+  }
+
+  button:hover {
+    opacity: 0.5;
   }
