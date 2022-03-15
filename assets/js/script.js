@@ -5,25 +5,25 @@ let canvas = document.getElementById('gameCanvas'),
     paddleWidth = 10,
     paddleOne = 250,
     paddleOneDirection = null,
-    paddleOneVelocity = 15,
+    paddleOneSpeed = 15,
     paddleTwo = 250,
     paddleTwoDirection= null,
-    paddleTwoVelocity = 10,
+    paddleTwoSpeed = 10,
     ballPositionX = canvas.width/2,
     ballPositionY = canvas.height/2,
     ballSize = 22,
-    ballVelocityX = 8,
-    ballVelocityY = 0,
+    ballSpeedX = 8,
+    ballSpeedY = 0,
     playerOneScore = 0,
     playerTwoScore = 0,
     startOption = document.getElementById('startOption'),
     pauseOption = document.getElementById('pauseOption'),
-    gameOverOption = document.getElementById('gameOverOption'),
-    gameplay = document.getElementById('gameplay'),
-    startBtn = document.getElementById('startBtn'),
+    gameOver = document.getElementById('gameOver'),
+    gamep = document.getElementById('game'),
+    begin = document.getElementById('begin'),
     continueBtn = document.getElementById('continueBtn'),
-    restartBtn = document.getElementById('restartBtn'),
-    againBtn = document.getElementById('againBtn'),
+    restart = document.getElementById('restart'),
+    again = document.getElementById('again'),
     gameMessage = document.getElementById('gameMessage'),
     fps = 65,
     gamePaused = false,
@@ -34,10 +34,10 @@ let canvas = document.getElementById('gameCanvas'),
 
 /* Adds event listeners for when buttons are clicked or keys are pressed */
 window.addEventListener('resize', windowResize);
-startBtn.addEventListener('click', startGame);
+begin.addEventListener('click', startGame);
 continueBtn.addEventListener('click', resumeGame);
-restartBtn.addEventListener('click', resetGame);
-againBtn.addEventListener('click', resetGame);
+restart.addEventListener('click', resetGame);
+again.addEventListener('click', resetGame);
 document.addEventListener('keydown', keyDown);
 document.addEventListener('keyup', keyUp);
 
@@ -46,13 +46,13 @@ canvas.height = window.innerHeight;
 ballPositionY = canvas.height/2 - ballSize/2 
 paddleOne = canvas.height/2 - paddleHeight/2;
 paddleTwo = canvas.height/2 - paddleHeight/2;
-ballVelocityY = getRandomNumber(-5,5) * (.25 * difficultyLevel),
+ballSpeedY = getRandomNumber(-5,5) * (.25 * difficultyLevel),
 
 /* Start Up page */
 startOption.className = 'active';
 pauseOption.className = '';
-gameplay.className = '';
-gameOverOption.className = '';
+game.className = '';
+gameOver.className = '';
 
 window.onblur = function() {
   if(gameInProgress) pauseGame();  
@@ -61,9 +61,9 @@ window.onblur = function() {
 /* Begins running game code when start button is clicked */
 function startGame() {
   gameInProgress = true;
-  gameplay.className = '';
+  game.className = '';
   startOption.className = '';
-  gameOverOption.className = '';
+  gameOver.className = '';
   pauseOption.className = '';
   gamePaused = false;
   gameInterval = window.setInterval(function() {
@@ -81,7 +81,7 @@ function resetGame() {
   ballPositionY = canvas.height/2 - ballSize/2;
   paddleOne = canvas.height/2 - paddleHeight/2;
   paddleTwo = canvas.height/2 - paddleHeight/2;
-  ballVelocityY = getRandomNumber(-5,5) * (.25 * difficultyLevel),
+  ballSpeedY = getRandomNumber(-5,5) * (.25 * difficultyLevel),
   startGame();
 }
 
@@ -97,7 +97,7 @@ function togglePause() {
 function pauseGame() {
   if(!gamePaused) {
     gamePaused = true;
-    gameplay.className = '';
+    game.className = '';
     pauseOption.className = 'active';
     clearInterval(gameInterval);
   }
@@ -106,7 +106,7 @@ function pauseGame() {
 function resumeGame() {
   if(gamePaused) {
     gamePaused = false;
-    gameplay.className = '';
+    game.className = '';
     pauseOption.className = ''; 
     startGame();
   }
@@ -140,8 +140,8 @@ function keyUp(e) {
 }
 
 function resetBall() {
-  ballVelocityX = -ballVelocityX;
-  ballVelocityY = getRandomNumber(-5,5) * (.25 * difficultyLevel);
+  ballSpeedX = -ballSpeedX;
+  ballSpeedY = getRandomNumber(-5,5) * (.25 * difficultyLevel);
   ballPositionX = canvas.width/2;
   ballPositionY = canvas.height/2;
 }
@@ -152,106 +152,106 @@ function getRandomNumber(min, max) {
 }
 
 function randomizeGame() {
-  paddleTwoVelocity = getRandomNumber(10,20) * (.25 * difficultyLevel);
+  paddleTwoSpeed = getRandomNumber(10,20) * (.25 * difficultyLevel);
 }
 
 /* Game over option */
-function gameOver(playerWon) {
+function gameFinished(playerWon) {
   gameInProgress = false;
   clearInterval(gameInterval);
   gameMessage.textContent = '';
-  againBtn.textContent = '';
+  again.textContent = '';
   if(playerWon) {
     gameMessage.textContent = 'Yay, You won!';
-    againBtn.textContent = 'Play again?';
+    again.textContent = 'Play again?';
   } else {
     gameMessage.textContent = 'Aww, you lost.';
-    againBtn.textContent = 'Try again?';
+    again.textContent = 'Try again?';
   }
-  gameplay.className = '';
-  gameOverOption.className = 'active'; 
+  game.className = '';
+  gameOver.className = 'active'; 
 }
 
 function moveEverything() {
-  ballPositionX = ballPositionX + ballVelocityX;
+  ballPositionX = ballPositionX + ballSpeedX;
   if(ballPositionX > canvas.width - paddleWidth*2 - ballSize/2) {
     if(ballPositionY >= paddleTwo && ballPositionY <= paddleTwo + paddleHeight && ballPositionX < canvas.width - paddleWidth) {
-      ballVelocityX = -ballVelocityX;
+      ballSpeedX = -ballSpeedX;
       if(ballPositionY >= paddleTwo && 
          ballPositionY < paddleTwo + paddleHeight*.2) {
-        ballVelocityY = -15 * (.25 * difficultyLevel);
+        ballSpeedY = -15 * (.25 * difficultyLevel);
       } else if(ballPositionY >= paddleTwo + paddleHeight*.2 && 
                 ballPositionY < paddleTwo + paddleHeight*.4) {
-        ballVelocityY = -10 * (.25 * difficultyLevel);
+        ballSpeedY = -10 * (.25 * difficultyLevel);
       } else if(ballPositionY >= paddleTwo + paddleHeight*.4 && 
                 ballPositionY < paddleTwo + paddleHeight*.6) {
-        ballVelocityY = getRandomNumber(-5,5);;
+        ballSpeedY = getRandomNumber(-5,5);;
       } else if(ballPositionY >= paddleTwo + paddleHeight*.6 && 
-                ballPositionY < paddleTwoVelocity + paddleHeight*.8) {
-        ballVelocityY = 10 * (.25 * difficultyLevel);
+                ballPositionY < paddleTwoSpeed + paddleHeight*.8) {
+        ballSpeedY = 10 * (.25 * difficultyLevel);
       } else if(ballPositionY >= paddleTwo + paddleHeight*.8 && 
                 ballPositionY < paddleTwo + paddleHeight) {
-        ballVelocityY = 15 * (.25 * difficultyLevel);
+        ballSpeedY = 15 * (.25 * difficultyLevel);
       }
     /* Displays winner message */
     } else if(ballPositionX > canvas.width) {
       resetBall();
       playerOneScore++;
       difficultyLevel = playerOneScore*.5;
-      if(playerOneScore === scoreToWin) gameOver(true);
+      if(playerOneScore === scoreToWin) gameFinished(true);
     }
     randomizeGame();
   } else if(ballPositionX < paddleWidth*2 + ballSize/2) {
     if(ballPositionY >= paddleOne && 
        ballPositionY <= paddleOne + paddleHeight && 
        ballPositionX > paddleWidth + ballSize/2) {
-      ballVelocityX = -ballVelocityX;
+      ballSpeedX = -ballSpeedX;
       if(ballPositionY >= paddleOne && 
          ballPositionY < paddleOne + paddleHeight*.2) {
-        ballVelocityY = -20 * (.25 * difficultyLevel);
+        ballSpeedY = -20 * (.25 * difficultyLevel);
       } else if(ballPositionY >= paddleOne + paddleHeight*.2 && 
                 ballPositionY < paddleOne + paddleHeight*.4) {
-        ballVelocityY = -10 * (.25 * difficultyLevel);
+        ballSpeedY = -10 * (.25 * difficultyLevel);
       } else if(ballPositionY >= paddleOne + paddleHeight*.4 && 
-                ballPositionY < paddleOneVelocity + paddleHeight*.6) {
-        ballVelocityY = 0 * (.25 * difficultyLevel);
+                ballPositionY < paddleOneSpeed + paddleHeight*.6) {
+        ballSpeedY = 0 * (.25 * difficultyLevel);
       } else if(ballPositionY >= paddleOne  + paddleHeight*.6 && 
                 ballPositionY < paddleOne + paddleHeight*.8) {
-        ballVelocityY = 10 * (.25 * difficultyLevel);
+        ballSpeedY = 10 * (.25 * difficultyLevel);
       } else if(ballPositionY >= paddleOne + paddleHeight*.8 && 
                 ballPositionY < paddleOne + paddleHeight) {
-        ballVelocityY = 20 * (.25 * difficultyLevel);
+        ballSpeedY = 20 * (.25 * difficultyLevel);
       }
     /* Displays lose message */
     } else if(ballPositionX <= -ballSize) {
       resetBall();
       playerTwoScore++;
-      if(playerTwoScore === scoreToWin) gameOver(false);
+      if(playerTwoScore === scoreToWin) gameFinished(false);
     }
     randomizeGame();
   }
 
   /* Ball and paddle controls */
-  ballPositionY = ballPositionY + ballVelocityY; 
+  ballPositionY = ballPositionY + ballSpeedY; 
   if(ballPositionY > canvas.height - ballSize/2) {
-    ballVelocityY = -ballVelocityY;
+    ballSpeedY = -ballSpeedY;
     ballPositionY = canvas.height - ballSize/2;
   } else if(ballPositionY < ballSize/2) {
-    ballVelocityY = -ballVelocityY;
+    ballSpeedY = -ballSpeedY;
     ballPositionY = ballSize/2;
   }
   
   if(paddleOneDirection === 'up' && paddleOne >= 0) {
-    paddleOne = paddleOne - paddleOneVelocity;
+    paddleOne = paddleOne - paddleOneSpeed;
   } else if(paddleOneDirection === 'down' && 
             paddleOne < (canvas.height - paddleHeight) ) {
-    paddleOne += paddleOneVelocity; 
+    paddleOne += paddleOneSpeed; 
   }
   
   if(ballPositionY < paddleTwo) {
-    paddleTwo -= paddleTwoVelocity;
+    paddleTwo -= paddleTwoSpeed;
   } else if(ballPositionY > paddleTwo + paddleHeight) {
-    paddleTwo += paddleTwoVelocity;    
+    paddleTwo += paddleTwoSpeed;    
   }
 }
 

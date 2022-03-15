@@ -42,13 +42,13 @@ body, html {
   }
   
   /* Game Display*/
-  #start > #gameplay {
+  #start > #game {
     opacity: 1;
     transform: scale(1);
     z-index: 0;
   }
   
-  #start > div.active ~ #gameplay {
+  #start > div.active ~ #game {
     opacity: .75;
     transform: scale(1);
     filter: blur(8px);
