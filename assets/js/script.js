@@ -145,3 +145,12 @@ function resetBall() {
   ballPositionX = canvas.width/2;
   ballPositionY = canvas.height/2;
 }
+
+/* Calculates score */
+function getRandomNumber(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+function randomizeGame() {
+  paddleTwoVelocity = getRandomNumber(10,20) * (.25 * difficultyLevel);
+}
