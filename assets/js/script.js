@@ -1,6 +1,6 @@
 /* Content of game display */
-let canvas = document.getElementById('PongCanvas'),
-    canvasContext = canvas.getContext('3d'),
+let canvas = document.getElementById('gameCanvas'),
+    canvasContext = canvas.getContext('2d'),
     paddleHeight = 110,
     paddleWidth = 10,
     paddleOne = 250,
@@ -25,6 +25,7 @@ let canvas = document.getElementById('PongCanvas'),
     restart = document.getElementById('restart'),
     again = document.getElementById('again'),
     gameMessage = document.getElementById('gameMessage'),
+    fps = 70,
     gamePaused = false,
     gameInProgress = false,
     scoreToWin = 5,
@@ -32,11 +33,11 @@ let canvas = document.getElementById('PongCanvas'),
     gameInterval = window.setInterval(function() {});
 
 /* Adds event listeners for when buttons are clicked or keys are pressed */
+window.addEventListener('resize', resizeWindow);
 begin.addEventListener('click', startGame);
 continueBtn.addEventListener('click', resumeGame);
-again.addEventListener('click', resetGame);
 restart.addEventListener('click', resetGame);
-window.addEventListener('resize', resizeWindow);
+again.addEventListener('click', resetGame);
 document.addEventListener('keydown', keyDown);
 document.addEventListener('keyup', keyUp);
 
@@ -49,8 +50,8 @@ ballSpeedY = getRandomNumber(-5,5) * (.25 * difficultyLevel),
 
 /* Start Up page */
 startOption.className = 'active';
-game.className = '';
 pauseOption.className = '';
+game.className = '';
 gameOver.className = '';
 
 window.onblur = function() {
@@ -68,7 +69,7 @@ function startGame() {
   gameInterval = window.setInterval(function() {
     moveGame();
     drawGame();
-  });
+  }, 1000/fps);
 }
 
 /* Resets game display when reset button is clicked */
