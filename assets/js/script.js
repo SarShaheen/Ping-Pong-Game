@@ -1,6 +1,6 @@
 /* Content of game display */
-let canvas = document.getElementById('gameCanvas'),
-    canvasContext = canvas.getContext('2d'),
+let canvas = document.getElementById('PongCanvas'),
+    canvasContext = canvas.getContext('3d'),
     paddleHeight = 110,
     paddleWidth = 10,
     paddleOne = 250,
@@ -25,7 +25,6 @@ let canvas = document.getElementById('gameCanvas'),
     restart = document.getElementById('restart'),
     again = document.getElementById('again'),
     gameMessage = document.getElementById('gameMessage'),
-    fps = 70,
     gamePaused = false,
     gameInProgress = false,
     scoreToWin = 5,
@@ -33,11 +32,11 @@ let canvas = document.getElementById('gameCanvas'),
     gameInterval = window.setInterval(function() {});
 
 /* Adds event listeners for when buttons are clicked or keys are pressed */
-window.addEventListener('resize', resizeWindow);
 begin.addEventListener('click', startGame);
 continueBtn.addEventListener('click', resumeGame);
-restart.addEventListener('click', resetGame);
 again.addEventListener('click', resetGame);
+restart.addEventListener('click', resetGame);
+window.addEventListener('resize', resizeWindow);
 document.addEventListener('keydown', keyDown);
 document.addEventListener('keyup', keyUp);
 
@@ -50,8 +49,8 @@ ballSpeedY = getRandomNumber(-5,5) * (.25 * difficultyLevel),
 
 /* Start Up page */
 startOption.className = 'active';
-pauseOption.className = '';
 game.className = '';
+pauseOption.className = '';
 gameOver.className = '';
 
 window.onblur = function() {
@@ -69,7 +68,7 @@ function startGame() {
   gameInterval = window.setInterval(function() {
     moveGame();
     drawGame();
-  }, 1000/fps);
+  });
 }
 
 /* Resets game display when reset button is clicked */
@@ -259,11 +258,11 @@ function drawGame() {
   canvasContext.fillRect(canvas.width - paddleWidth - paddleWidth,paddleTwo,paddleWidth,paddleHeight);
   
   canvasContext.fillStyle = '#ADAEAE';
-  canvasContext.font = "175px 'Oswald', sans-serif"; 
+  canvasContext.font = "160px 'Oswald', sans-serif"; 
   canvasContext.fillText(playerOneScore,canvas.width*.22,canvas.height/7 + 75);
   
   canvasContext.fillStyle = '#ADAEAE';
-  canvasContext.font = "175px 'Oswald', sans-serif";
+  canvasContext.font = "160px 'Oswald', sans-serif";
   canvasContext.fillText(playerTwoScore,canvas.width*.72,canvas.height/7 + 75);
   
   canvasContext.strokeStyle = '#4D5359';
