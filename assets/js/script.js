@@ -101,7 +101,7 @@ function pauseGame() {
     clearInterval(gameInterval);
   }
 }
-
+/* Continues game */
 function resumeGame() {
   if(gamePaused) {
     gamePaused = false;
@@ -117,7 +117,7 @@ function resizeWindow() {
   canvas.height = window.innerHeight;
   drawGame();
 }
-
+/* resets ball postion */
 function resetBall() {
   ballSpeedX = -ballSpeedX;
   ballSpeedY = getRandomNumber(-5,5) * (.25 * difficultyLevel);
