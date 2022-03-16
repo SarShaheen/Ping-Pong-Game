@@ -268,6 +268,8 @@ function drawGame() {
   
   canvasContext.strokeStyle = '#4D5359';
   canvasContext.beginPath();
+  canvasContext.setLineDash([5,5]);
+  canvasContext.lineDashOffset = 3;
   canvasContext.moveTo(canvas.width/2,0);
   canvasContext.lineTo(canvas.width/2,canvas.height);
   canvasContext.stroke();
