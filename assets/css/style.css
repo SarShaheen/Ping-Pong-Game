@@ -2,7 +2,7 @@
 body, html {
     height: 100%;
     width: 100%;
-    background: #EBEBEB;
+    background-color: #EBEBEB;;
     font-family: 'Oswald', sans-serif;
     margin: 0;
   }
@@ -63,12 +63,12 @@ body, html {
     color: #F5F5F5;
     border: 0;
     border-radius: 150px;
-    padding: 8px 18px;
+    padding: 7px 18px;
     font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin: 14px;
-    min-width: 150px;
+    min-width: 100px;
     opacity: .75;
     transition: .25s;
     cursor: pointer;
