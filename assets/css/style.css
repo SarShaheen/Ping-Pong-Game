@@ -61,13 +61,11 @@ body, html {
     background-color: #4D5359;
     font-family: 'Oswald', sans-serif;
     color: #F5F5F5;
-    border: 0;
     border-radius: 10px;
     padding: 7px 16px;
     font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin: 14x;
     min-width: 150px;
     opacity: .75;
     transition: .25s;
