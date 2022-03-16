@@ -33,13 +33,13 @@ The start up page includes instructions on how to play and an option to start th
 
 It also displays the game rules underneath so the user can understand how the game works and which controls to use.
 
-![Screenshot](assets/images/start-up-page.png)
+![Screenshot](assets/images/start-up.png)
 
--__Pause Menu__
+-__Paused Menu__
 
 An option to pause the game is also available if needed by pressing the 'Enter' key. Again, the page features two interactive buttons to either continue playing or restart the game. This allows the user to keep track of their score without starting over if they take a break, or if a new tab is opened in the browser.
 
-![Screenshot](assets/images/pause-menu.png)
+![Screenshot](assets/images/paused-menu.png)
 
 - __Game Score__
 
